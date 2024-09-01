@@ -1,0 +1,51 @@
+.nav-bar {
+  width: 100%;
+  display: flex;
+  background-color: var(--dark-slate-blue);
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-head {
+  padding: 20px 0px;
+}
+
+.logo {
+  color: var(--cornflower-blue);
+}
+
+.link-css-reset {
+  text-decoration: none;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 62px;
+}
+
+.nav-item {
+  padding: 20px 0px;
+}
+
+.nav-item .link-css-reset:hover {
+  color: var(--cornflower-blue);
+}
+
+.btn-white {
+  text-decoration: none;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 9999px;
+  padding: 15px 10px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
