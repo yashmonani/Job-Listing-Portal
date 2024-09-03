@@ -1,0 +1,49 @@
+.cards {
+  position: relative;
+}
+
+.header-section-center {
+  text-align: center;
+  padding: 20px 0px;
+  color: var(--dark-slate-blue);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bg-color-left {
+  width: 50%;
+  background-color: var(--lavender-2);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.filter-bar {
+  width: 315px;
+  height: 100vh;
+  background-color: white;
+  border: 1px solid var(--N400);
+}
+
+.filter-bar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 20px;
+  font-weight: 100;
+}
+
+.job-listing-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.post-list-container {
+  width: 60%;
+  margin: 0px 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
