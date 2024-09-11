@@ -37,6 +37,7 @@
 .job-listing-container {
   display: flex;
   justify-content: center;
+  padding-bottom: 100px;
   margin: 20px 0px;
 }
 
@@ -46,4 +47,5 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
+  padding-bottom: 40px;
 }

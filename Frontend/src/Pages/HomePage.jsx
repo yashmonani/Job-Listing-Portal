@@ -1,7 +1,10 @@
+import "./HomePage.css";
 const HomePage = () => {
   return (
     <>
-      <h1>Home Page Started</h1>
+      <div className="home-page-container">
+        <h1>HomePage Started</h1>
+      </div>
     </>
   );
 };
