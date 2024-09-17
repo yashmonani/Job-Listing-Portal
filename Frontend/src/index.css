@@ -14,3 +14,7 @@
   --lavender: #d1d8f3;
   --light-steel-blue: #bac6f6;
 }
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
