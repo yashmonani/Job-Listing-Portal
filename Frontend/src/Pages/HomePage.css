@@ -1,0 +1,6 @@
+.home-page-container {
+  background-color: var(--dark-slate-blue);
+  margin-top: 20px;
+  height: 100vh;
+  color: #fff;
+}
