@@ -19,17 +19,17 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/companies" className="link-css-reset">
+              <Link to="" className="link-css-reset">
                 Companies
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/services" className="link-css-reset">
+              <Link to="" className="link-css-reset">
                 Services
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/services" className="btn-white">
+              <Link to="" className="btn-white">
                 Sign In
               </Link>
             </li>

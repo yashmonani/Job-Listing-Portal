@@ -13,6 +13,11 @@
   --royal-blue: #5478ff;
   --lavender: #d1d8f3;
   --light-steel-blue: #bac6f6;
+  --N400: #e7e7f1;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
