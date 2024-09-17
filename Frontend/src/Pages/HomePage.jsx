@@ -13,9 +13,9 @@ const HomePage = () => {
           </p>
           <div className="hero-search">
             <input type="text" placeholder="Job Keyword..." />
-            <buttton type="submit" className="button search-btn">
+            <button type="submit" className="button search-btn">
               Search
-            </buttton>
+            </button>
           </div>
         </div>
         <div className="hero-image">
