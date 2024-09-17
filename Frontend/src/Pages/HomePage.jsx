@@ -88,7 +88,5 @@ const HomePage = () => {
       </div>
     </>
   );
-const HomePage = () => {
-  return <></>;
 };
 export default HomePage;
