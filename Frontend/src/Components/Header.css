@@ -4,6 +4,8 @@
   background-color: var(--dark-slate-blue);
   justify-content: space-around;
   align-items: center;
+  position: sticky;
+  top: 0;
 }
 
 .logo-head {

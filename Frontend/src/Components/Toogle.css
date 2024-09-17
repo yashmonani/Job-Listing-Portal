@@ -1,0 +1,25 @@
+.toogle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--lavender-2);
+  margin-bottom: 16px;
+}
+
+.toogle-title {
+  color: var(--dark-slate-blue);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 10px 0px;
+  padding-left: 20px;
+}
+.toogle-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cornflower-blue);
+  color: #fff;
+  font-size: 23px;
+  width: 80px;
+  height: 80px;
+}
