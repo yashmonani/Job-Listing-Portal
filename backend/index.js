@@ -11,8 +11,6 @@
  dotenv.config({});
  const app = express(); 
  
-  
-
 
 //Middleware
 app.use(express.json());
@@ -36,3 +34,9 @@ app.use("/api/v1/application",applicationRoute);
     connectDB();
     console.log(`Server running at port ${PORT}`);
  })
+
+ /*
+ git add .
+ git commit -m " "
+ push origin backend
+ */
