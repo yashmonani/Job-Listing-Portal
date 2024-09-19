@@ -4,6 +4,7 @@
   background-color: var(--dark-slate-blue);
   justify-content: space-around;
   align-items: center;
+  padding: 10px 0px;
   position: sticky;
   top: 0;
 }
@@ -25,6 +26,7 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 62px;
 }
@@ -50,4 +52,15 @@
   text-align: center;
   cursor: pointer;
   border: none;
+}
+
+.pop-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pop-icon {
+  display: flex;
+  align-items: center;
 }

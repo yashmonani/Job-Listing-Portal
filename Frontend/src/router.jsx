@@ -5,6 +5,8 @@ import HomePage from "./Pages/HomePage";
 import JobListingPage from "./Pages/JobListingPage";
 import ProfilePage from "./Pages/ProfilePage";
 import DashboardPage from "./Pages/DashboardPage";
+import SignUp from "./Pages/auth/SignUp";
+import Login from "./Pages/auth/Login";
 
 function AppRouter() {
   return (
@@ -12,6 +14,8 @@ function AppRouter() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/jobs" element={<JobListingPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/dashboard" element={<DashboardPage />} />

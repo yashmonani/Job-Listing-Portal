@@ -1,6 +1,16 @@
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/Components/ui/popover";
+import { Avatar, AvatarImage } from "@/Components/ui/avatar";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { Button } from "./ui/button";
+import { FaRegUser } from "react-icons/fa";
+import { LuLogOut } from "react-icons/lu";
 const Header = () => {
+  const user = false;
   return (
     <>
       <header>
@@ -29,9 +39,34 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="" className="btn-white">
-                Sign In
-              </Link>
+              {!user ? (
+                <Link to="/signup" className="btn-white">
+                  Sign In
+                </Link>
+              ) : (
+                <Popover>
+                  <PopoverTrigger>
+                    <Avatar className="">
+                      <AvatarImage
+                        src="https://github.com/shadcn.png"
+                        alt="@shadcn"
+                      />
+                    </Avatar>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80">
+                    <div className="pop-content">
+                      <div className="pop-icon">
+                        <FaRegUser />
+                        <Button variant="link">Your Profile</Button>
+                      </div>
+                      <div className="pop-icon">
+                        <LuLogOut />
+                        <Button variant="link">Logout</Button>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              )}
             </li>
           </ul>
         </nav>
