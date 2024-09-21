@@ -1,6 +1,8 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import getDataUri from "../utils/datauri.js";
+import cloudinary from "../utils/cloudinary.js";
 
 // Register Function
 export const register = async (req, res) => {
@@ -82,6 +84,14 @@ export const login = async (req, res) => {
       expiresIn: "1d",
     });
 
+    user = {
+      _id:user._id,
+      fullname:user.fullname,
+      email:user.email,
+      phoneNumber:user.phoneNumber,
+      role:user.role,
+      profile:user.profile
+    }
     return res
       .status(200)
       .cookie("token", token, {
@@ -91,6 +101,7 @@ export const login = async (req, res) => {
       })
       .json({
         message: `Welcome back ${user.fullname}`,
+        user,
         success: true,
       });
   } catch (error) {
@@ -118,6 +129,9 @@ export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
     const file = req.file;
+    // // Cloudinary 
+    const fileUri = getDataUri(file);
+    const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 
     let skillsArray;
    if(skills){
@@ -142,8 +156,22 @@ export const updateProfile = async (req, res) => {
     if(bio)  user.profile.bio = bio;
     if(skills) user.profile.skills = skillsArray;
 
+    if(cloudResponse){
+    user.profile.resume = cloudResponse.secure_url // Save the cloudinry url
+    user.profile.resumeOriginalName = file.originalname // Save the original name
+    }
+
     // Save updated user data
     await user.save();
+
+    user = {
+      _id:user._id,
+      fullname:user.fullname,
+      email:user.email,
+      phoneNumber:user.phoneNumber,
+      role:user.role,
+      profile:user.profile
+    }
 
     return res.status(200).json({
       message: "Profile updated successfully.",

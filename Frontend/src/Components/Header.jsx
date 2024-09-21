@@ -9,8 +9,10 @@ import "./Header.css";
 import { Button } from "./ui/button";
 import { FaRegUser } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
+import { useContext } from "react";
+import { UserContext } from "@/Store/user-store";
 const Header = () => {
-  const user = false;
+  const { user } = useContext(UserContext);
   return (
     <>
       <header>
@@ -57,7 +59,9 @@ const Header = () => {
                     <div className="pop-content">
                       <div className="pop-icon">
                         <FaRegUser />
-                        <Button variant="link">Your Profile</Button>
+                        <Button variant="link">
+                          <Link to="/profile">Your Profile</Link>
+                        </Button>
                       </div>
                       <div className="pop-icon">
                         <LuLogOut />

@@ -2,9 +2,11 @@ import "./SignUp.css";
 import axios from "axios";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { USER_API_END_POINT } from "@/utils/constant";
+import { UserContext } from "@/Store/user-store";
 const Login = () => {
+  const { userHandler } = useContext(UserContext);
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -26,13 +28,13 @@ const Login = () => {
         withCredentials: true,
       });
       if (res.data.success) {
-        // handleLogin(res.data.user);
+        userHandler(res.data.user);
         navigate("/");
         toast.success(res.data.message);
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.response.data.message);
+      // toast.error(error.response.data.message);
     }
   };
   return (

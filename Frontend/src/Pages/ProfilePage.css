@@ -1,0 +1,38 @@
+.profile-section {
+  padding: 120px 20px 240px 20px;
+}
+
+.profile-container {
+  width: 80%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: auto;
+  padding: 40px;
+  border: 1px solid gray;
+}
+
+.p-row-first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.p-content h1 {
+  font-size: 30px;
+  font-weight: 500;
+}
+.profile-image {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.edit-btn {
+  font-size: 40px;
+}
+.p-row-second {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
