@@ -1,7 +1,18 @@
 import "./HomePage.css";
 import ToogleList from "../Components/ToogleList";
 import ToogleListProvider from "../Store/toogle-list-store";
+import { UserContext } from "@/Store/user-store";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user && user.role === "recruiter") {
+      navigate("/admin/dashboard");
+    }
+  }, [user, navigate]); // Include dependencies
+
   return (
     <>
       <div className="hero-section">

@@ -1,0 +1,18 @@
+.c-container {
+  padding: 120px 20px 240px 20px;
+}
+
+.c-content {
+  width: 80%;
+  margin: 0px auto;
+}
+
+.c-content h1 {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.c-content p {
+  color: #888893;
+}

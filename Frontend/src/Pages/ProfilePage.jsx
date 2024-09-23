@@ -44,8 +44,12 @@ const ProfilePage = () => {
             )}
             <Label>Resume</Label>
             {isResume ? (
-              <a target="blank" href="" className="hover:underline">
-                Roop {user?.profile?.resumeOriginalName} 
+              <a
+                target="blank"
+                href={user?.profile?.resume}
+                className="hover:underline"
+              >
+                {user?.profile?.resumeOriginalName}
               </a>
             ) : (
               <span>NA</span>
