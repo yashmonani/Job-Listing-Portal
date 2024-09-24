@@ -1,4 +1,4 @@
-import { COMPANY_API_END_POINT } from "@/utils/constant";
+import { COMPANY_API_END_POINT, JOB_API_END_POINT } from "@/utils/constant";
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
@@ -25,7 +25,32 @@ const UserDetailsProvider = ({ children }) => {
     localStorage.removeItem("user");
     console.log("User updated:", data);
   };
-  //Fetching All Companies
+
+  //Fetch Company By Id
+  // const [singleCompany, setSingleCompany] = useState(null);
+
+  // const useGetCompanyById = (companyId) => {
+  //   useEffect(() => {
+  //     const fetchSingleCompany = async () => {
+  //       try {
+  //         const res = await axios.get(
+  //           `${COMPANY_API_END_POINT}/get/${companyId}`,
+  //           {
+  //             withCredentials: true,
+  //           }
+  //         );
+  //         console.log(res.data.company);
+  //         if (res.data.success) {
+  //           setSingleCompany(res.data.company);
+  //         }
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     };
+  //     fetchSingleCompany();
+  //   }, [companyId, setSingleCompany]);
+  // };
+
   const [companies, setCompanies] = useState([]);
 
   const useGetAllCompanies = () => {
@@ -45,9 +70,71 @@ const UserDetailsProvider = ({ children }) => {
       fetchCompanies();
     }, []);
   };
+  // Dependency array includes companies
+
+  // Persist companies to localStorage whenever the state updates
+  //   useEffect(() => {
+  //     if (companies.length > 0) {
+  //       localStorage.setItem("companies", JSON.stringify(companies));
+  //     }
+  //   }, [companies]);
+  // };
 
   // Searching Companies
   const [searchCompanyByText, setSearchCompanyByText] = useState("");
+
+  // Get AdminJobs
+
+  const [allAdminJobs, setAllAdminJobs] = useState([]);
+
+  const useGetAllAdminJobs = () => {
+    useEffect(() => {
+      const fetchAllAdminJobs = async () => {
+        try {
+          const res = await axios.get(`${JOB_API_END_POINT}/getadminjobs`, {
+            withCredentials: true,
+          });
+          if (res.data.success) {
+            setAllAdminJobs(res.data.jobs);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchAllAdminJobs();
+    }, []);
+  };
+
+  // Searching AdminJobs
+  const [searchJobsByText, setSearchJobsByText] = useState("");
+
+  //Getting All Jobs
+
+  const [allJobs, setAllJobs] = useState([]);
+
+  const useGetAllJobs = () => {
+    useEffect(() => {
+      const fetchAllJobs = async () => {
+        try {
+          const res = await axios.get(`${JOB_API_END_POINT}/get`, {
+            withCredentials: true,
+          });
+          setAllJobs(res.data.jobs);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchAllJobs();
+    }, []);
+  };
+
+  //Getting Single Job By Id
+
+  const [singleJob, setSingleJob] = useState(null);
+
+  // Applicants
+
+  const [applicants, setApplicants] = useState([]);
 
   // Provide user data and handler to the children
   return (
@@ -59,6 +146,15 @@ const UserDetailsProvider = ({ children }) => {
         useGetAllCompanies,
         searchCompanyByText,
         setSearchCompanyByText,
+        allAdminJobs,
+        useGetAllAdminJobs,
+        searchJobsByText,
+        setSearchJobsByText,
+        allJobs,
+        useGetAllJobs,
+        singleJob,
+        setSingleJob,
+        setApplicants,
       }}
     >
       {children}
@@ -67,23 +163,3 @@ const UserDetailsProvider = ({ children }) => {
 };
 
 export default UserDetailsProvider;
-
-// import { createContext, useState } from "react";
-// export const UserContext = createContext();
-
-// const UserDetailsProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-
-//   const userHandler = (data) => {
-//     setUser(data);
-//     console.log(user);
-//   };
-//   return (
-//     <>
-//       <UserContext.Provider value={{ user, userHandler }}>
-//         {children}
-//       </UserContext.Provider>
-//     </>
-//   );
-// };
-// export default UserDetailsProvider;

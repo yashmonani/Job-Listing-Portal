@@ -53,8 +53,8 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="" className="link-css-reset">
-                    Services
+                  <Link to="/admin/jobs" className="link-css-reset">
+                    Jobs
                   </Link>
                 </li>
               </>

@@ -9,45 +9,46 @@ import {
   TableBody,
 } from "@/Components/ui/table";
 import { UserContext } from "@/Store/user-store";
-import { Avatar, AvatarImage } from "@/Components/ui/avatar";
 import { Popover, PopoverTrigger } from "@radix-ui/react-popover";
-import { Edit, MoreHorizontal } from "lucide-react";
+import { Edit, Eye, MoreHorizontal } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const CompaniesTable = () => {
+const AdminJobsTable = () => {
   const navigate = useNavigate();
-  const { companies, searchCompanyByText } = useContext(UserContext);
-
-  const [filterCompany, setFilterCompany] = useState(companies);
+  const { allAdminJobs, searchJobsByText } = useContext(UserContext);
+  const [filterJobs, setFilterJobs] = useState(allAdminJobs);
 
   useEffect(() => {
-    const filteredCompany =
-      companies.length >= 0 &&
-      companies.filter((company) => {
-        if (!searchCompanyByText) {
+    const filteredJobs =
+      allAdminJobs.length >= 0 &&
+      allAdminJobs.filter((job) => {
+        if (!searchJobsByText) {
           return true;
         }
-        return company?.name
-          ?.toLowerCase()
-          .includes(searchCompanyByText.toLowerCase()); // Corrected here
+        return (
+          job?.title?.toLowerCase().includes(searchJobsByText.toLowerCase()) ||
+          job?.company?.name
+            ?.toLowerCase()
+            .includes(searchJobsByText.toLowerCase())
+        ); // Corrected here
       });
-    setFilterCompany(filteredCompany);
-  }, [companies, searchCompanyByText]);
+    setFilterJobs(filteredJobs);
+  }, [allAdminJobs, searchJobsByText]);
 
   return (
     <>
       <Table>
-        <TableCaption>List of your recent registered companies</TableCaption>
+        <TableCaption>List of your recent posted Jobs</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Logo</TableHead>
-            <TableHead>Name</TableHead>
+            <TableHead>Company Name</TableHead>
+            <TableHead>Role</TableHead>
             <TableHead>Date</TableHead>
             <TableHead className="text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {companies.length <= 0 ? (
+          {allAdminJobs.length <= 0 ? (
             <tr>
               <td colSpan="4" style={{ textAlign: "center" }}>
                 You haven't registered any company yet.
@@ -55,17 +56,11 @@ const CompaniesTable = () => {
             </tr>
           ) : (
             <>
-              {filterCompany?.map((company) => (
-                <tr key={company._id}>
-                  <TableCell>
-                    <div>
-                      <Avatar>
-                        <AvatarImage src={company.logo} alt="@shadcn" />
-                      </Avatar>
-                    </div>
-                  </TableCell>
-                  <TableCell>{company.name}</TableCell>
-                  <TableCell>{company.createdAt.split("T")[0]}</TableCell>
+              {filterJobs?.map((job) => (
+                <tr key={job._id}>
+                  <TableCell>{job?.company?.name}</TableCell>
+                  <TableCell>{job?.title}</TableCell>
+                  <TableCell>{job.createdAt.split("T")[0]}</TableCell>
                   <TableCell className="text-right">
                     <Popover>
                       <PopoverTrigger>
@@ -74,12 +69,21 @@ const CompaniesTable = () => {
                       <PopoverContent className="w-32">
                         <div
                           onClick={() =>
-                            navigate(`/admin/dashboard/${company._id}`)
+                            navigate(`/admin/dashboard/${job._id}`)
                           }
                           className="flex items-center gap-1 w-fit cursor-pointer"
                         >
                           <Edit className="w-4" />
                           <span>Edit</span>
+                        </div>
+                        <div
+                          onClick={() =>
+                            navigate(`/admin/jobs/${job._id}/applicants`)
+                          }
+                          className="flex items-center w-fit gap-2 cursor-pointer mt-2"
+                        >
+                          <Eye className="w-4"></Eye>
+                          <span>Applicants</span>
                         </div>
                       </PopoverContent>
                     </Popover>
@@ -94,4 +98,4 @@ const CompaniesTable = () => {
   );
 };
 
-export default CompaniesTable;
+export default AdminJobsTable;

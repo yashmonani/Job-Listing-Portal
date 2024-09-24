@@ -49,3 +49,45 @@
   flex-direction: column;
   padding-bottom: 40px;
 }
+
+.description-section {
+  padding: 120px 20px 240px 20px;
+}
+.description-head {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px 20px;
+  border-bottom: 2px solid gray;
+}
+
+.description-head h1 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.head-content {
+  display: flex;
+  gap: 15px;
+}
+
+.content {
+  background-color: var(--dark-slate-blue);
+  color: #fff;
+  padding: 10px 37px;
+  border-radius: 12px;
+}
+
+.job-details {
+  width: 80%;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.job-details h2 {
+  font-size: 18px;
+  font-weight: 400;
+}

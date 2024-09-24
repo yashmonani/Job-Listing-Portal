@@ -4,9 +4,12 @@ import ToogleListProvider from "../Store/toogle-list-store";
 import { UserContext } from "@/Store/user-store";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import LatestJobs from "@/Components/LatestJobs";
 const HomePage = () => {
-  const { user } = useContext(UserContext);
+  const { user, useGetAllJobs } = useContext(UserContext);
   const navigate = useNavigate();
+
+  useGetAllJobs();
   useEffect(() => {
     if (user && user.role === "recruiter") {
       navigate("/admin/dashboard");
@@ -35,6 +38,7 @@ const HomePage = () => {
           <div className="hero-bg-right"></div>
         </div>
       </div>
+      <LatestJobs />
       <div className="section">
         <div className="container">
           <div className="video-side-image"></div>
@@ -54,6 +58,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
       <div className="logo-title">
         Trusted by the world’s fastest growing companies
       </div>

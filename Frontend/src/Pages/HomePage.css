@@ -1,4 +1,3 @@
-
 .hero-section {
   background-color: var(--lavender);
   display: flex;
@@ -317,6 +316,71 @@
   margin-bottom: 30px;
   font-size: 42px;
   font-weight: 700;
+}
+
+.latest-jobs-container {
+  width: 80%;
+  margin: auto;
+  color: var(--dark-slate-blue);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.l-jobs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.latest-jobs-title {
+  margin-bottom: 30px;
+}
+.latest-card-container {
+  flex: 1;
+  padding: 32px 46px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 0 15px 45px rgba(21, 31, 71, 0.1);
+  background-color: #fff;
+}
+.l-row-first {
+  margin-bottom: 20px;
+}
+
+.l-row-first h3 {
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.l-row-second {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.l-row-second h4 {
+  border-right: 1px solid gray;
+  padding-right: 12px;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.l-row-third {
+  font-size: 18px;
+  font-weight: 100;
+  margin-bottom: 18px;
+}
+
+.l-row-four h4 {
+  display: flex;
+  gap: 20px;
+}
+.l-currency {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.l-size {
+  font-size: 16px;
 }
 
 /* Smartphones */

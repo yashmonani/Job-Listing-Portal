@@ -1,13 +1,17 @@
 import { Button } from "@/Components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Label } from "@/Components/ui/label";
 import { Input } from "@/Components/ui/input";
 import axios from "axios";
 import { COMPANY_API_END_POINT } from "@/utils/constant";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
+import { UserContext } from "@/Store/user-store";
 const CompanySetup = () => {
+  // const { singleCompany, useGetCompanyById } = useContext(UserContext);
+  const params = useParams();
+  // useGetCompanyById(params);
   const [input, setInput] = useState({
     name: "",
     description: "",
@@ -16,7 +20,7 @@ const CompanySetup = () => {
     file: null,
   });
   const navigate = useNavigate();
-  const params = useParams();
+
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -56,6 +60,17 @@ const CompanySetup = () => {
       toast.error(error.response.data, message);
     }
   };
+  // useEffect(() => {
+  //   if (singleCompany) {
+  //     setInput({
+  //       name: singleCompany.name || "",
+  //       description: singleCompany.description || "",
+  //       website: singleCompany.website || "",
+  //       location: singleCompany.location || "",
+  //       file: singleCompany.location || null,
+  //     });
+  //   }
+  // }, [singleCompany]);
   return (
     <>
       <div className="max-w-xl mx-auto my-10 c-container">
