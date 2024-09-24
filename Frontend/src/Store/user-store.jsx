@@ -1,4 +1,8 @@
-import { COMPANY_API_END_POINT, JOB_API_END_POINT } from "@/utils/constant";
+import {
+  APPLICATION_API_END_POINT,
+  COMPANY_API_END_POINT,
+  JOB_API_END_POINT,
+} from "@/utils/constant";
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
@@ -50,6 +54,8 @@ const UserDetailsProvider = ({ children }) => {
   //     fetchSingleCompany();
   //   }, [companyId, setSingleCompany]);
   // };
+
+  //Getting all companies
 
   const [companies, setCompanies] = useState([]);
 
@@ -108,6 +114,10 @@ const UserDetailsProvider = ({ children }) => {
   // Searching AdminJobs
   const [searchJobsByText, setSearchJobsByText] = useState("");
 
+  //Search Queery
+
+  // const [searchedQuery, setSearchedQuery] = useState("");
+
   //Getting All Jobs
 
   const [allJobs, setAllJobs] = useState([]);
@@ -119,7 +129,9 @@ const UserDetailsProvider = ({ children }) => {
           const res = await axios.get(`${JOB_API_END_POINT}/get`, {
             withCredentials: true,
           });
-          setAllJobs(res.data.jobs);
+          if (res.data.success) {
+            setAllJobs(res.data.jobs);
+          }
         } catch (error) {
           console.log(error);
         }
@@ -135,6 +147,26 @@ const UserDetailsProvider = ({ children }) => {
   // Applicants
 
   const [applicants, setApplicants] = useState([]);
+
+  //Getting applied jobs
+
+  const [allAppliedJobs, setAllAppliedJobs] = useState([]);
+
+  const useGetAppliedJobs = () => {
+    useEffect(() => {
+      const fetchAppliedJobs = async () => {
+        try {
+          const res = await axios.get(`${APPLICATION_API_END_POINT}/get`, {
+            withCredentials: true,
+          });
+          if (res.data.success) {
+            setAllAppliedJobs(res.data.application);
+          }
+        } catch (error) {}
+      };
+      fetchAppliedJobs();
+    }, []);
+  };
 
   // Provide user data and handler to the children
   return (
@@ -154,7 +186,10 @@ const UserDetailsProvider = ({ children }) => {
         useGetAllJobs,
         singleJob,
         setSingleJob,
+        applicants,
         setApplicants,
+        allAppliedJobs,
+        useGetAppliedJobs,
       }}
     >
       {children}

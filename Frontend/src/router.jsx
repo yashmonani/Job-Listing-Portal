@@ -25,7 +25,7 @@ function AppRouter() {
         <Route path="/login" element={<Login />} />
         <Route path="/jobs" element={<JobListingPage />} />
         <Route path="/description/:id" element={<JobDescription />} />
-        <Route path="/browse" element={<Browse />} />
+        <Route path="/browsejobs" element={<Browse />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/admin/dashboard" element={<DashboardPage />} />
         <Route path="/admin/dashboard/create" element={<CompanyCreate />} />

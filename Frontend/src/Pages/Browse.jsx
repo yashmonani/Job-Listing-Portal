@@ -1,13 +1,22 @@
+import LatestJobCard from "@/Components/LatestJobCard";
 import PostCard from "@/Components/PostCard";
+import { UserContext } from "@/Store/user-store";
+import { useContext, useEffect } from "react";
 
 const Browse = () => {
-  const randomJobs = [1, 2, 3];
+  const { allJobs, setSearchedQuery, useGetAllJobs } = useContext(UserContext);
+  useGetAllJobs();
+  useEffect(() => {
+    return () => {
+      setSearchedQuery("");
+    };
+  }, []);
   return (
     <>
       <div>
-        <h1>Search Results({randomJobs.length})</h1>
-        {randomJobs.map((item, index) => {
-          return <div>{/* <PostCard></PostCard> */}</div>;
+        <h1>Search Results({allJobs.length})</h1>
+        {allJobs.map((job) => {
+          return <LatestJobCard key={job._id} item={job} />;
         })}
       </div>
     </>

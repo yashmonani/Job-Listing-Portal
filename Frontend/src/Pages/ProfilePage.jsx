@@ -8,8 +8,8 @@ import { Label } from "@radix-ui/react-label";
 import AppliedJobTable from "@/Components/AppliedJobTable";
 import UpdateProfileDialog from "@/Components/UpdateProfileDialog";
 const ProfilePage = () => {
-  const { user } = useContext(UserContext);
-
+  const { user, useGetAppliedJobs } = useContext(UserContext);
+  useGetAppliedJobs();
   const [open, setOpen] = useState(false);
   const isResume = true;
   return (

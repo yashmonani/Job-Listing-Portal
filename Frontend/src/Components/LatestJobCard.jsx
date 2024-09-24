@@ -2,10 +2,15 @@ import { Badge } from "../Components/ui/badge";
 import { MdCurrencyRupee } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
 import { MdOutlineWorkHistory } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 const LatestJobCard = ({ item }) => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="latest-card-container">
+      <div
+        onClick={() => navigate(`description/${item._id}`)}
+        className="latest-card-container"
+      >
         <div className="l-row-first">
           <h2>{item.title}</h2>
           <h3>{item.company.name}</h3>
