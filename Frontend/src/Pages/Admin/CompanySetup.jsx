@@ -1,3 +1,5 @@
+import "./DashboardPage.css";
+import { FaArrowLeft } from "react-icons/fa";
 import { Button } from "@/Components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
@@ -73,69 +75,78 @@ const CompanySetup = () => {
   // }, [singleCompany]);
   return (
     <>
-      <div className="max-w-xl mx-auto my-10 c-container">
-        <form onSubmit={submitHandler}>
-          <div className="flex items-center gap-5 p-8">
-            <Button
+      <div className="admin-section">
+        <div className="admin-hero-section">
+          <div className="header-content">
+            <h1>Company Profile</h1>
+            <p>
+              Ensure your company profile reflects your brand to attract the
+              best candidates.
+            </p>
+          </div>
+          <div>
+            <button
               onClick={() => navigate("/admin/dashboard")}
-              variant="outline"
-              className="flex items-center gap-2 text-gray-500 font-semibold"
+              className="btn-back"
             >
-              <ArrowLeft></ArrowLeft>
+              <FaArrowLeft />
               <span>Back</span>
+            </button>
+          </div>
+        </div>
+        <div className="admin-details">
+          <form onSubmit={submitHandler}>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label>Company Name</Label>
+                <Input
+                  type="text"
+                  name="name"
+                  value={input.name}
+                  onChange={changeEventHandler}
+                ></Input>
+              </div>
+              <div>
+                <Label>Description</Label>
+                <Input
+                  type="text"
+                  name="description"
+                  value={input.description}
+                  onChange={changeEventHandler}
+                ></Input>
+              </div>
+              <div>
+                <Label>Website</Label>
+                <Input
+                  type="text"
+                  name="website"
+                  value={input.website}
+                  onChange={changeEventHandler}
+                ></Input>
+              </div>
+              <div>
+                <Label>Location</Label>
+                <Input
+                  type="text"
+                  name="location"
+                  value={input.location}
+                  onChange={changeEventHandler}
+                ></Input>
+              </div>
+              <div>
+                <Label>Logo</Label>
+                <Input
+                  type="file"
+                  accept="image/*"
+                  onChange={changeFileHandler}
+                ></Input>
+              </div>
+            </div>
+            <Button type="submit" className="w-full mt-8">
+              Update
             </Button>
-            <h1 className="font-bold text-xl">Company Setup</h1>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <Label>Company Name</Label>
-              <Input
-                type="text"
-                name="name"
-                value={input.name}
-                onChange={changeEventHandler}
-              ></Input>
-            </div>
-            <div>
-              <Label>Description</Label>
-              <Input
-                type="text"
-                name="description"
-                value={input.description}
-                onChange={changeEventHandler}
-              ></Input>
-            </div>
-            <div>
-              <Label>Website</Label>
-              <Input
-                type="text"
-                name="website"
-                value={input.website}
-                onChange={changeEventHandler}
-              ></Input>
-            </div>
-            <div>
-              <Label>Location</Label>
-              <Input
-                type="text"
-                name="location"
-                value={input.location}
-                onChange={changeEventHandler}
-              ></Input>
-            </div>
-            <div>
-              <Label>Logo</Label>
-              <Input
-                type="file"
-                accept="image/*"
-                onChange={changeFileHandler}
-              ></Input>
-            </div>
-          </div>
-          <Button type="submit" className="w-full mt-8">
-            Update
-          </Button>
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );

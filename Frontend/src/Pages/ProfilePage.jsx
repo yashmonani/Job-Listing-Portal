@@ -19,7 +19,7 @@ const ProfilePage = () => {
           <div className="p-row-first">
             <div className="profile-image">
               <Avatar className="h-24 w-24">
-                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarImage src={user?.profile?.profilePhoto} />
               </Avatar>
               <div className="p-content">
                 <h1>{user?.fullname}</h1>
@@ -33,64 +33,58 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="p-row-second">
-            <h1>{user?.email}</h1>
-            <h1>{user?.phoneNumber}</h1>
-            {user?.profile?.skills.length !== 0 ? (
-              user?.profile?.skills.map((item, index) => (
-                <Badge key={index}>{item}</Badge>
-              ))
-            ) : (
-              <span>NA</span>
-            )}
-            <Label>Resume</Label>
-            {isResume ? (
-              <a
-                target="blank"
-                href={user?.profile?.resume}
-                className="hover:underline"
-              >
-                {user?.profile?.resumeOriginalName}
-              </a>
-            ) : (
-              <span>NA</span>
-            )}
+            <div className="row-second-left">
+              <h1>
+                <span className="p-bold">Email: </span>
+                {user?.email}
+              </h1>
+              <h1>
+                <span className="p-bold">Phone Number: </span>
+                {user?.phoneNumber}
+              </h1>
+
+              <Label className="p-bold">Resume:</Label>
+              {isResume ? (
+                <a
+                  target="blank"
+                  href={user?.profile?.resume}
+                  className="text-[var(--royal-blue)] hover:underline"
+                >
+                  {user?.profile?.resumeOriginalName}
+                </a>
+              ) : (
+                <span>NA</span>
+              )}
+            </div>
+            <div className="row-second-right">
+              <div className="row-right-para">
+                <h3>Bio</h3>
+                <p>{user?.profile?.bio}</p>
+              </div>
+              <div className="skills-section">
+                <h3>Skills</h3>
+                {user?.profile?.skills.length !== 0 ? (
+                  user?.profile?.skills.map((item, index) => (
+                    <Badge
+                      className="bg-[var(--royal-blue)] m-left"
+                      key={index}
+                    >
+                      {item}
+                    </Badge>
+                  ))
+                ) : (
+                  <span>NA</span>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <h1>Applied Jobs</h1>
+        <div className="profile-container">
+          <h1 className="p-table-head">Applied Jobs</h1>
           <AppliedJobTable />
         </div>
       </div>
-
       <UpdateProfileDialog open={open} setopen={setOpen} />
-
-      {/* <div className="profile-section">
-        <div className="profile-container">
-          <div className="profile-image">
-            <Avatar className="h-24 w-24">
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            </Avatar>
-            <h1>{user?.fullname}</h1>
-            <br />
-            <p>{user?.bio}</p>
-          </div>
-          <div>
-            <h1>{user?.email}</h1>
-            <br />
-            <h1>{user?.phoneNumber}</h1>
-            <br />
-            <h1>
-              {user?.profile?.skills.length === 0 ? (
-                user?.profile?.skills.map((item, index) => (
-                  <Badge key={index}>{item}</Badge>
-                ))
-              ) : (
-                <span></span>
-              )}
-            </h1>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };

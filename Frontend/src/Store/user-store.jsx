@@ -23,6 +23,17 @@ const UserDetailsProvider = ({ children }) => {
     }
   }, [user]);
 
+  // Clear data when user logs out or becomes null
+  useEffect(() => {
+    if (user === null) {
+      localStorage.removeItem("user");
+      localStorage.removeItem("allJobs");
+      localStorage.removeItem("singleJob");
+      localStorage.removeItem("applicants");
+      localStorage.removeItem("allAppliedJobs");
+    }
+  }, [user]);
+
   // Handler to update the user and persist it
   const userHandler = (data) => {
     setUser(data);
@@ -120,29 +131,69 @@ const UserDetailsProvider = ({ children }) => {
 
   //Getting All Jobs
 
-  const [allJobs, setAllJobs] = useState([]);
+  const [allJobs, setAllJobs] = useState(() => {
+    const savedJobs = localStorage.getItem("allJobs");
+    return savedJobs ? JSON.parse(savedJobs) : [];
+  });
 
   const useGetAllJobs = () => {
     useEffect(() => {
-      const fetchAllJobs = async () => {
-        try {
-          const res = await axios.get(`${JOB_API_END_POINT}/get`, {
-            withCredentials: true,
-          });
-          if (res.data.success) {
-            setAllJobs(res.data.jobs);
+      if (allJobs.length === 0) {
+        const fetchAllJobs = async () => {
+          try {
+            const res = await axios.get(`${JOB_API_END_POINT}/get`, {
+              withCredentials: true,
+            });
+            if (res.data.success) {
+              setAllJobs(res.data.jobs);
+            }
+          } catch (error) {
+            console.log(error);
           }
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      fetchAllJobs();
-    }, []);
+        };
+        fetchAllJobs();
+      }
+    }, [allJobs]);
+
+    useEffect(() => {
+      if (allJobs.length > 0) {
+        localStorage.setItem("allJobs", JSON.stringify(allJobs));
+      }
+    }, [allJobs]);
   };
+
+  // const [allJobs, setAllJobs] = useState([]);
+
+  // const useGetAllJobs = () => {
+  //   useEffect(() => {
+  //     const fetchAllJobs = async () => {
+  //       try {
+  //         const res = await axios.get(`${JOB_API_END_POINT}/get`, {
+  //           withCredentials: true,
+  //         });
+  //         if (res.data.success) {
+  //           setAllJobs(res.data.jobs);
+  //         }
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     };
+  //     fetchAllJobs();
+  //   }, []);
+  // };
 
   //Getting Single Job By Id
 
-  const [singleJob, setSingleJob] = useState(null);
+  const [singleJob, setSingleJob] = useState(() => {
+    const savedSingleJob = localStorage.getItem("singleJob");
+    return savedSingleJob ? JSON.parse(savedSingleJob) : null;
+  });
+  useEffect(() => {
+    if (singleJob) {
+      localStorage.setItem("singleJob", JSON.stringify(singleJob));
+    }
+  }, [singleJob]);
+  // const [singleJob, setSingleJob] = useState(null);
 
   // Applicants
 

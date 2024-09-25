@@ -16,7 +16,10 @@ const PostCard = ({ item }) => {
   };
   return (
     <>
-      <div className="card-container">
+      <div
+        onClick={() => navigate(`/description/${item._id}`)}
+        className="card-container"
+      >
         <div className="first-row m-bottom">
           <h2>{item.title}</h2>
           <h3>{item.company.name}</h3>
@@ -39,10 +42,12 @@ const PostCard = ({ item }) => {
           <h4>{item.description}</h4>
         </div>
         <div className="fourth-row m-bottom">
-          <h4>
+          <h4 className="flex-badge">
             {" "}
             {item.requirements.map((item, index) => (
-              <Badge key={index}>{item}</Badge>
+              <Badge className="p-badge bg-[var(--royal-blue)]" key={index}>
+                {item}
+              </Badge>
             ))}
           </h4>
         </div>
@@ -52,14 +57,6 @@ const PostCard = ({ item }) => {
               ? "Today"
               : `${daysAgo(item?.createdAt)} Days Ago`}
           </h4>
-        </div>
-        <div>
-          <Button
-            onClick={() => navigate(`/description/${item._id}`)}
-            variant="outline"
-          >
-            Details
-          </Button>
         </div>
       </div>
     </>

@@ -16,18 +16,20 @@ const DashboardPage = () => {
   }, [input]);
   return (
     <>
-      <div className="max-w-6xl mx-auto my-10">
-        <div className="flex items-center justify-between my-5">
-          <Input
-            onChange={(e) => setInput(e.target.value)}
-            className="w-fit"
-            placeholder="Filter by name"
-          ></Input>
-          <Button onClick={() => navigate("/admin/dashboard/create")}>
-            New Company
-          </Button>
+      <div className="admin-section">
+        <div className="max-w-6xl mx-auto my-10">
+          <div className="flex items-center justify-between my-5">
+            <Input
+              onChange={(e) => setInput(e.target.value)}
+              className="w-fit"
+              placeholder="Filter by name"
+            ></Input>
+            <Button onClick={() => navigate("/admin/dashboard/create")}>
+              New Company
+            </Button>
+          </div>
+          <CompaniesTable />
         </div>
-        <CompaniesTable />
       </div>
     </>
   );

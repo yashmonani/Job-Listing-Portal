@@ -154,6 +154,7 @@
   padding-top: 20px;
   padding-left: 20px;
 }
+
 .content-head {
   color: #fff;
   margin-top: 10px;
@@ -241,6 +242,7 @@
   font-size: 18px;
   padding: 60px 0px;
 }
+
 .query-section {
   background-color: var(--dark-slate-blue);
   margin-top: 20px;
@@ -280,6 +282,7 @@
   display: flex;
   gap: 30px;
 }
+
 .query-img1 {
   width: 50%;
   height: 280px;
@@ -311,11 +314,16 @@
 .query-list {
   padding-left: 35px;
 }
+
 .query-heading {
   color: white;
   margin-bottom: 30px;
   font-size: 42px;
   font-weight: 700;
+}
+
+.latest-jobs-section {
+  padding: 120px 20px 0px 20px;
 }
 
 .latest-jobs-container {
@@ -328,26 +336,42 @@
 
 .l-jobs-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 }
 
 .latest-jobs-title {
-  margin-bottom: 30px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
+  text-decoration: underline;
 }
+
 .latest-card-container {
-  flex: 1;
-  padding: 32px 46px;
+  width: 31.92%;
+  padding: 32px 34px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-shadow: 0 15px 45px rgba(21, 31, 71, 0.1);
   background-color: #fff;
 }
+
 .l-row-first {
+  line-height: 41px;
   margin-bottom: 20px;
 }
 
+.l-row-first h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
 .l-row-first h3 {
-  font-size: 23px;
+  color: black;
+  font-size: 20px;
   font-weight: 500;
 }
 
@@ -355,6 +379,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
+  margin-bottom: 10px;
 }
 
 .l-row-second h4 {
@@ -370,15 +395,24 @@
   margin-bottom: 18px;
 }
 
-.l-row-four h4 {
+.flex-badge {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.p-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
 }
 .l-currency {
   display: flex;
   align-items: center;
   gap: 2px;
 }
+
 .l-size {
   font-size: 16px;
 }

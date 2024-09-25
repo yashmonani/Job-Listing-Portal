@@ -1,12 +1,18 @@
 .cards {
   position: relative;
+  padding: 120px 0px 240px 0px;
 }
 
 .header-section-center {
   text-align: center;
-  padding: 20px 0px;
+  padding-bottom: 22px;
   color: var(--dark-slate-blue);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header-section-center h1 {
+  font-size: 38px;
+  font-weight: 600;
 }
 
 .bg-color-left {
@@ -37,8 +43,7 @@
 .job-listing-container {
   display: flex;
   justify-content: center;
-  padding-bottom: 100px;
-  margin: 20px 0px;
+  margin-top: 20px;
 }
 
 .post-list-container {
@@ -47,7 +52,6 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
-  padding-bottom: 40px;
 }
 
 .description-section {

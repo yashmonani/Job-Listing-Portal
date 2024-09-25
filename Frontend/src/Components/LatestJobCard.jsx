@@ -33,9 +33,11 @@ const LatestJobCard = ({ item }) => {
           <h4>{item.description}</h4>
         </div>
         <div className="l-row-four">
-          <h4>
+          <h4 className="flex-badge">
             {item.requirements.map((item, index) => (
-              <Badge key={index}>{item}</Badge>
+              <Badge className="p-badge bg-[var(--royal-blue)]" key={index}>
+                {item}
+              </Badge>
             ))}
           </h4>
         </div>

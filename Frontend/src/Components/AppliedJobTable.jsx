@@ -14,7 +14,6 @@ const AppliedJobTable = () => {
   const { allAppliedJobs } = useContext(UserContext);
   return (
     <>
-      <h1>Hii</h1>
       <Table>
         <TableCaption>A list of your Applied Jobs</TableCaption>
         <TableHeader>
@@ -42,7 +41,7 @@ const AppliedJobTable = () => {
                         : appliedJob.status === "pending"
                         ? "bg-blue-400"
                         : "bg-green-400"
-                    }`}
+                    } status-badge`}
                   >
                     {appliedJob.status.toUpperCase()}
                   </Badge>
