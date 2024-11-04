@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1727187405592" clover="3.2.0">
+  <project timestamp="1727187405593" name="All files">
+    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="8" coveredelements="8" complexity="0" loc="8" ncloc="8" packages="1" files="4" classes="4"/>
+    <file name="application.model.js" path="C:\Users\Yashraj Monani\Desktop\Prac\React\zidio_project\Updated project\JobListingPortal\backend\models\application.model.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+    </file>
+    <file name="company.model.js" path="C:\Users\Yashraj Monani\Desktop\Prac\React\zidio_project\Updated project\JobListingPortal\backend\models\company.model.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="28" count="1" type="stmt"/>
+    </file>
+    <file name="job.model.js" path="C:\Users\Yashraj Monani\Desktop\Prac\React\zidio_project\Updated project\JobListingPortal\backend\models\job.model.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+    </file>
+    <file name="user.model.js" path="C:\Users\Yashraj Monani\Desktop\Prac\React\zidio_project\Updated project\JobListingPortal\backend\models\user.model.js">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

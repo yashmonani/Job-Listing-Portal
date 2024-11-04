@@ -41,7 +41,7 @@ const Login = () => {
     <>
       <div className="signup-section">
         <form onSubmit={submitHandler} className="f-container">
-          <h1>SignUp</h1>
+          <h1>SignIn</h1>
           <div className="f-label">
             <label>Email</label>
             <input

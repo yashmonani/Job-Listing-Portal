@@ -116,7 +116,7 @@ const SignUp = () => {
             <label htmlFor="recruiter">Recruiter</label>
           </div>
           <div className="f-label">
-            <label>Phone Number</label>
+            <label>Profile Photo</label>
             <input
               accept="image/*"
               type="file"

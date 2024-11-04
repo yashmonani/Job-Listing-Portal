@@ -39,9 +39,7 @@ const Header = () => {
         <nav className="nav-bar">
           <div className="logo-head">
             <Link to="/" className="link-css-reset">
-              <h2>
-                Project <span className="logo">Logo</span>
-              </h2>
+            <img src="src/assets/JobsHeaven_logo1.png" alt="img" width="200px" />
             </Link>
           </div>
           <ul className="nav-links">
@@ -69,7 +67,7 @@ const Header = () => {
             <li className="nav-item">
               {!user ? (
                 <Link to="/signup" className="btn-white">
-                  Sign In
+                  Login 
                 </Link>
               ) : (
                 <Popover>

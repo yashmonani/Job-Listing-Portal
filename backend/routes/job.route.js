@@ -1,5 +1,4 @@
 
-
 import express from "express";
 import isAuthenticated from "../middlewares/isAuthenticated.js";
 import { getAdminjobs, getALLJob, getJobById, postJob } from "../controllers/job.controller.js";
